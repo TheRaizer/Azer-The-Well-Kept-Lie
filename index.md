@@ -1,43 +1,6 @@
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/TheRaizer/Azer2DPlatFormer/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/TheRaizer/Azer2DPlatFormer/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
-
 ## BackGround Information
 This 2D platformer was created as a way to learn new design patterns and test my programming ability with new game mechanics.
+
 
 ## State Changing When Wall Jumping
 {% include youtubePlayer.html id="vvK_GnG-D4c" %}
@@ -109,6 +72,8 @@ public class StateMachine
     }
 ```
 
+
+
 ## Combat and Enemies
 {% include youtubePlayer.html id="4_ou2wtyHuA" %}
 This video demonstrates the combat capabilities in my game as well as a some enemies. If you watch carefully in the first part of the video you will notice that the enemy is roaming until the player gets into view. Each enemy has its own roam and aggro states as well as components that make itself up. Below is the Enemy class that each enemy object in Unity will have. For each enemy there are also special controller classes that each one has. Each controller class is a composition of multiple other classes(components). Each of these components work together without inherently interacting directly with each other, therefore it is a one way dependency in which the controller classes functionality is dependent on its components.
@@ -144,6 +109,8 @@ This video demonstrates the combat capabilities in my game as well as a some ene
         Enemy ParentEnemy { get; }
     }
 ```
+
+
 
 ## Pub Sub Aggregator System used with Pressure Plates
 {% include youtubePlayer.html id="r28y2OuftRo" %}
