@@ -116,7 +116,6 @@ This video demonstrates the combat capabilities in my game as well as a some ene
 {% include youtubePlayer.html id="r28y2OuftRo" %}
 This video demonstrates how the Pub Sub pattern utilizing an Aggretator was implemented to have pressure plates that lifted doors. The Pub Sub design pattern is used to reduce dependencies between publishers and subscribers, the aggregator allows even less dependency. So much so that the publishers do not need to know of what subscribers there are. Instead they just invoke any actions that have been subcribed. Each action needs a given message as its parameter and the publishers will pass their message object when invoking them. There cannot be multiple Aggregators and so we create a Unity singleton.
 
-###Aggregator
 ```csharp
 public class EventAggregator : MonoBehaviour
 {
