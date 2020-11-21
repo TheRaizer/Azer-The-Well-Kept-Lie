@@ -36,6 +36,9 @@ Your Pages site will use the layout and styles from the Jekyll theme you have se
 
 Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
 
+## BackGround Information
+This 2D platformer was created as a way to learn new design patterns and test my programming ability with new game mechanics.
+
 ## State Changing When Wall Jumping
 {% include youtubePlayer.html id="vvK_GnG-D4c" %}
 This video demonstrates the wall jumping mechanic in Azer the Well Kept Lie. Each time the player's animation changes to be attached to the wall you are able to visually see the change from its current state to the WallSlide state. When you are in the WallSlide state there are certain restrictions put in place, such as being unable to attack or run. These restrictions as well as what to do on enter, exit, and update of the state is managed by a class which inherits from the abstract State class.
@@ -105,3 +108,7 @@ public class StateMachine
         }
     }
 ```
+
+## Combat and Enemies
+{% include youtubePlayer.html id="4_ou2wtyHuA" %}
+This video demonstrates the combat capabilities in my game as well as a some enemies. If you watch carefully in the first part of the video you will notice that the enemy is roaming until the player gets into view. The enemy as states previously has a state machine along with its own finite states.
