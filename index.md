@@ -285,3 +285,142 @@ public class OpenDoorStopBarrierOnPressurePlate : MonoBehaviour
     }
 }
 ```
+
+## Composition with Entities
+In the folder **Assets/Scripts/Entites/EntityComponents** you can see all of the components that make up the general entity. These components were created based on the use of Composition. Where each entity will have a controller that contains multiple of these components. The combination of these components will make up a majority of what the entity can do. The use of Composition allowed the reusability of a big portion of the code. For example instead of rewriting the code for ground checking for each entity, by creating a component out of it I was able to use the same code for every entity without having to rewrite. Below is the CheckEntityGrounded component which any entity that needs to know when it is grounded will instantiate in their controller.
+
+```csharp
+public class CheckEntityGrounded
+    {
+        private readonly Rigidbody2D rb;
+        private readonly LayerMask floor;
+        private readonly BoxCollider2D boxCollider;
+        private readonly float distance;
+
+        public bool IsGrounded { get; set; }
+
+        public Action OnGrounded { get; set; }
+        public Action WhenNotGrounded { get; set; }
+
+        public CheckEntityGrounded(Rigidbody2D rb, LayerMask floor, BoxCollider2D entityBoxCollider, float _distance)
+        {
+            this.rb = rb;
+            this.floor = floor;
+            boxCollider = entityBoxCollider;
+            distance = _distance;
+        }
+
+        public void GroundCheck()
+        {
+            if (rb.velocity.y <= 0)
+            {
+                RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, distance, floor);
+
+                if (hit)
+                {
+                    IsGrounded =  true;
+                    OnGrounded?.Invoke();
+                }
+                else
+                {
+                    WhenNotGrounded?.Invoke();
+                    IsGrounded = false;
+                }
+            }
+        }
+    }
+```
+
+
+## Unit Testing
+I was able to utilize Unity's unit testing to create scripts that allowed me to test the functionality of other scripts. The use of unit testing is to make sure that certain important pieces of code that work, stay working and are not touched during the programming process. Not only this, but it allows me to find bugs easier because I can simply run a unit test to understand what already works and what doesn't. This narrows down my search making the most tedius part of programming a much easier task. Below is an example of a unit test for the health manager, which was important to create because many bugs are involved with health management.
+
+```csharp
+public class HealthManagerTests
+    {
+        [Test]
+        public void Player_HealthManager_HitNegative_Exception()
+        {
+            PlayerHealthManager healthManager = new GameObject().AddComponent<PlayerHealthManager>();
+            healthManager.SetMaxHealth();
+
+            Assert.Throws<ArgumentOutOfRangeException>(() => healthManager.Hit(-1));
+        }
+
+        [Test]
+        public void Player_HealthManager_HitTest()
+        {
+            PlayerHealthManager healthManager = new GameObject().AddComponent<PlayerHealthManager>();
+            healthManager.SetMaxHealth();
+            healthManager.MaxHeal();
+
+            int maxHealth = healthManager.CurrentHealth;
+
+            healthManager.Hit(1);
+
+            Assert.IsTrue(healthManager.CurrentHealth == maxHealth - 1);
+        }
+
+        [Test]
+        public void Enemy_HealthManager_HitTest()
+        {
+            EnemyHealthManager healthManager = new GameObject().AddComponent<EnemyHealthManager>();
+            healthManager.SetMaxHealth();
+            healthManager.MaxHeal();
+
+            int maxHealth = healthManager.CurrentHealth;
+
+            healthManager.Hit(2);
+
+            Assert.IsTrue(healthManager.CurrentHealth == maxHealth - 2);
+        }
+
+        [Test]
+        public void Enemy_HealthManager_HitNegative_Exception()
+        {
+            EnemyHealthManager healthManager = new GameObject().AddComponent<EnemyHealthManager>();
+            healthManager.SetMaxHealth();
+
+            Assert.Throws<ArgumentOutOfRangeException>(() => healthManager.Hit(-1));
+        }
+
+        [Test]
+        public void HealthManager_HealTest()
+        {
+            PlayerHealthManager healthManager = new GameObject().AddComponent<PlayerHealthManager>();
+            healthManager.SetMaxHealth();
+            healthManager.MaxHeal();
+
+            healthManager.Hit(1);
+
+            int tempHealth = healthManager.CurrentHealth;
+
+            healthManager.Heal(1);
+
+            Assert.IsTrue(healthManager.CurrentHealth == tempHealth + 1);
+        }
+
+        [Test]
+        public void HealthManager_HealWithMaxHealthTest()
+        {
+            PlayerHealthManager healthManager = new GameObject().AddComponent<PlayerHealthManager>();
+            healthManager.SetMaxHealth();
+            healthManager.MaxHeal();
+
+            int maxHealth = healthManager.CurrentHealth;
+
+            healthManager.Heal(1);
+
+            Assert.IsTrue(healthManager.CurrentHealth == maxHealth);
+        }
+
+        [Test]
+        public void HealthManager_HealNegative_Exception()
+        {
+            PlayerHealthManager healthManager = new GameObject().AddComponent<PlayerHealthManager>();
+            healthManager.SetMaxHealth();
+
+            Assert.Throws<ArgumentOutOfRangeException>(() => healthManager.Heal(0));
+        }
+    }
+```
