@@ -38,7 +38,7 @@ Having trouble with Pages? Check out our [documentation](https://docs.github.com
 
 ## State Changing When Wall Jumping
 {% include youtubePlayer.html id="vvK_GnG-D4c" %}
-This video demonstrates the wall jumping mechanic in Azer the Well Kept Lie. Each time the player's animation changes to be attached to the wall you are able to visually see the change from its current state to the wall climb state. When you are in the wall climb state there are certain restrictions put in place, such as being unable to attack or run. These restrictions as well as what to do on enter, exit, and update of the state is managed by a class which inherits from the abstract State class.
+This video demonstrates the wall jumping mechanic in Azer the Well Kept Lie. Each time the player's animation changes to be attached to the wall you are able to visually see the change from its current state to the WallSlide state. When you are in the WallSlide state there are certain restrictions put in place, such as being unable to attack or run. These restrictions as well as what to do on enter, exit, and update of the state is managed by a class which inherits from the abstract State class.
 
 ```csharp
 public abstract class State
