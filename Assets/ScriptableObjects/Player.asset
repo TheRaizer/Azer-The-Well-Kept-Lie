@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5c5b3e61aba2454dbe10d5869809c68, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 100000000
+  <MoveSpeedX>k__BackingField: 6
+  <MoveSpeedY>k__BackingField: 0
+  <HorizDashSpeedX>k__BackingField: 13
+  <HorizDashSpeedY>k__BackingField: 5
+  <VertDashSpeed>k__BackingField: 10
+  <DiagonalDashSpeedX>k__BackingField: 6
+  <DiagonalDashSpeedY>k__BackingField: 10
+  <DashTime>k__BackingField: 0.15
+  <JumpForceX>k__BackingField: 0
+  <JumpForceY>k__BackingField: 9
+  <WallRestrictionTime>k__BackingField: 0.27
+  <WallPointRadius>k__BackingField: 0.03
+  <Wall>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 2099200
+  <WallJumpForceX>k__BackingField: 6
+  <WallJumpForceY>k__BackingField: 6.89
+  <JumpLerp>k__BackingField: 1.2
+  <WallSlideSpeed>k__BackingField: 0.5
+  <GroundPointRadius>k__BackingField: 0.05
+  <Floor>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 35784960
+  <FirstSwingDmg>k__BackingField: 1
+  <SecondSwingDmg>k__BackingField: 2
+  <ThirdSwingDmg>k__BackingField: 3
+  <FirstSwingKnockX>k__BackingField: 3
+  <FirstSwingKnockY>k__BackingField: 6
+  <FirstSwingKnockTime>k__BackingField: 0.2
+  <SecondSwingKnockX>k__BackingField: 5
+  <SecondSwingKnockY>k__BackingField: 3
+  <SecondSwingKnockTime>k__BackingField: 0.3
+  <ThirdSwingKnockX>k__BackingField: 4
+  <ThirdSwingKnockY>k__BackingField: 4
+  <ThirdSwingKnockTime>k__BackingField: 0.3
+  <FirstSwingCameraShakeAmt>k__BackingField: 0.02
+  <FirstSwingCameraShakeTime>k__BackingField: 0.2
+  <SecondSwingCameraShakeAmt>k__BackingField: 0.05
+  <SecondSwingCameraShakeTime>k__BackingField: 0.3
+  <ThirdSwingCameraShakeAmt>k__BackingField: 0.07
+  <ThirdSwingCameraShakeTime>k__BackingField: 0.2
+  <CoyoteTime>k__BackingField: 0.1
+  <JumpBufferTime>k__BackingField: 0.1

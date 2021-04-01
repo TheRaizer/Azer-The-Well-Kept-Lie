@@ -1,0 +1,15 @@
+{
+    "name": "Mechanisms",
+    "references": [
+        "GUID:bb037ebbdf211a44ea5de653a7527afe"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
