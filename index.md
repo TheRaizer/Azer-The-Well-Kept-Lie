@@ -3,7 +3,7 @@ This 2D platformer was created as a way to learn new design patterns and test my
 
 
 ## State Changing When Wall Jumping
-{% include youtubePlayer.html id="vvK_GnG-D4c" %}
+{% include youtubePlayer.html id="CFnqkuUrwbM" %}
 This video demonstrates the wall jumping mechanic in Azer the Well Kept Lie. Each time the player's animation changes to be attached to the wall you are able to visually see the change from its current state to the WallSlide state. When you are in the WallSlide state there are certain restrictions put in place, such as being unable to attack or run. These restrictions as well as what to do on enter, exit, and update of the state is managed by a class which inherits from the abstract State class.
 
 ```csharp
